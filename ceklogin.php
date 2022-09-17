@@ -2,7 +2,17 @@
 require("config/config.default.php");
 $username = mysqli_escape_string($koneksi, $_POST['username']);
 $password = mysqli_escape_string($koneksi, $_POST['password']);
-$siswaQ = mysqli_query($koneksi, "SELECT * FROM siswa WHERE username='$username'");
+$siswaQ = mysqli_query($koneksi, 
+	"SELECT siswa.id_siswa AS id_siswa,
+			siswa.password AS password, 
+			siswa.server AS server_siswa, 
+			siswa.status AS status,
+			setting.id_server AS id_server 
+			FROM 
+			siswa, setting 
+			WHERE 
+			username= '$username'
+			");
 if ($username <> "" and $password <> "") {
 	if (mysqli_num_rows($siswaQ) == 0) {
 		echo "td";
@@ -13,7 +23,11 @@ if ($username <> "" and $password <> "") {
 
 			if ($password <> $siswa['password']) {
 				echo "nopass";
-			} else {
+			}
+			elseif($siswa['server_siswa'] <> $siswa['id_server']) {
+				echo "server";
+			}
+			else {
 				//if($ceklogin==0){
 				$_SESSION['id_siswa'] = $siswa['id_siswa'];
 				mysqli_query($koneksi, "INSERT INTO log (id_siswa,type,text,date) VALUES ('$siswa[id_siswa]','login','masuk','$tanggal $waktu')");

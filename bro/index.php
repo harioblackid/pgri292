@@ -394,13 +394,13 @@ endif;
 		$(function() {
 			$('#textarea').wysihtml5()
 		});
-		var autoRefresh = setInterval(
-			function() {
-				$('#waktu').load('_load.php?pg=waktu');
-				$('#log-list').load('_load.php?pg=log');
-				$('#pengumuman').load('_load.php?pg=pengumuman');
-			}, 1000
-		);
+		// var autoRefresh = setInterval(
+		// 	function() {
+		// 		$('#waktu').load('_load.php?pg=waktu');
+		// 		$('#log-list').load('_load.php?pg=log');
+		// 		$('#pengumuman').load('_load.php?pg=pengumuman');
+		// 	}, 1000
+		// );
 
 		<?php if ($pg == 'statussiswa') { ?>
 			var autoRefresh = setInterval(

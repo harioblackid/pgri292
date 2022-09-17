@@ -105,6 +105,17 @@ require("config/config.candy.php");
 								timer: 1500
 							});
 						}
+
+						if (data == "server") {
+							swal({
+								position: 'top-end',
+								type: 'warning',
+								title: 'Siswa tidak terdaftar pada server ini',
+								showConfirmButton: false,
+								timer: 1500
+							});
+						}
+
 						if (data == "td") {
 							swal({
 								position: 'top-end',
