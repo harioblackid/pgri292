@@ -148,7 +148,7 @@ $ujianx = mysqli_num_rows(mysqli_query($koneksi, "select * from ujian "));
         </div>
     </div>
 </div>
-
+ 
 <script>
     $('#btnstatus').click(function() {
         $.ajax({

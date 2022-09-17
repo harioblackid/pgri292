@@ -1,11 +1,11 @@
 <?php
-if (!isset($_GET['id'])) {
-	die("Anda tidak dizinkan mengakses langsung script ini!");
-} else {
-	if ($_GET['id'] <> '76310EEFF2B5D3C887F238976A421B638CFEB0942AB8249CD0A29B125C91B3E5') {
-		die("Anda tidak dizinkan mengakses langsung script ini!");
-	}
-}
+// if (!isset($_GET['id'])) {
+// 	die("Anda tidak dizinkan mengakses langsung script ini!");
+// } else {
+// 	if ($_GET['id'] <> '76310EEFF2B5D3C887F238976A421B638CFEB0942AB8249CD0A29B125C91B3E5') {
+// 		die("Anda tidak dizinkan mengakses langsung script ini!");
+// 	}
+// }
 include "../../config/config.default.php";
 include "../../config/config.function.php";
 $pengawas = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM pengawas  WHERE id_pengawas='$_SESSION[id_pengawas]'"));

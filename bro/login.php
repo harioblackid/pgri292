@@ -131,7 +131,7 @@ $namasekolah = $setting['sekolah'];
 	<script src='../dist/bootstrap/js/bootstrap.min.js'></script>
 
 	<script src="../plugins/jQuery/main.js"></script>
-	<script src='<?= $homeurl ?>/plugins/izitoast/js/iziToast.min.js'></script>
+	<script src='../plugins/izitoast/js/iziToast.min.js'></script>
 	<script>
 		$(document).ready(function() {
 			$('#form-login').submit(function(e) {

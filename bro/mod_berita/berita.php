@@ -59,8 +59,8 @@ defined('APLIKASI') or exit('Anda tidak dizinkan mengakses langsung script ini!'
                                             <label>Ruang</label>
                                             <select class="form-control" id="bcruang" name="ruang" required>
                                                 <option>Ruang</option>
-                                                <?php $ruang = mysqli_query($koneksi, "select * from siswa group by ruang"); ?>
-                                                <?php while ($ruang = mysqli_fetch_array($ruang)) : ?>
+                                                <?php $queryruang = mysqli_query($koneksi, "select * from siswa group by ruang"); ?>
+                                                <?php while ($ruang = mysqli_fetch_array($queryruang)) : ?>
                                                     <option value="<?= $ruang['ruang'] ?>"><?= $ruang['ruang'] ?></option>
                                                 <?php endwhile; ?>
                                             </select>
@@ -87,13 +87,13 @@ defined('APLIKASI') or exit('Anda tidak dizinkan mengakses langsung script ini!'
                                     <div class='col-md-2'>
                                         <div class='form-group'>
                                             <label>Hadir</label>
-                                            <input type='number' name='hadir' class='form-control' required='true' />
+                                            <input type='number' name='hadir' class='form-control' />
                                         </div>
                                     </div>
                                     <div class='col-md-2'>
                                         <div class='form-group'>
                                             <label>Absen</label>
-                                            <input type='number' name='tidakhadir' class='form-control' required='true' />
+                                            <input type='number' name='tidakhadir' class='form-control' />
                                         </div>
                                     </div>
                                     <div class='col-md-12'>
@@ -107,31 +107,31 @@ defined('APLIKASI') or exit('Anda tidak dizinkan mengakses langsung script ini!'
                                     <div class='col-md-6'>
                                         <div class='form-group'>
                                             <label>Nama Proktor</label>
-                                            <input type='text' name='nama_proktor' class='form-control' required='true' />
+                                            <input type='text' name='nama_proktor' class='form-control'  />
                                         </div>
                                     </div>
                                     <div class='col-md-6'>
                                         <div class='form-group'>
                                             <label>NIP Proktor</label>
-                                            <input type='text' name='nip_proktor' class='form-control' required='true' />
+                                            <input type='text' name='nip_proktor' class='form-control'  />
                                         </div>
                                     </div>
                                     <div class='col-md-6'>
                                         <div class='form-group'>
                                             <label>Nama Pengawas</label>
-                                            <input type='text' name='nama_pengawas' class='form-control' required='true' />
+                                            <input type='text' name='nama_pengawas' class='form-control'  />
                                         </div>
                                     </div>
                                     <div class='col-md-6'>
                                         <div class='form-group'>
                                             <label>NIP Pengawas</label>
-                                            <input type='text' name='nip_pengawas' class='form-control' required='true' />
+                                            <input type='text' name='nip_pengawas' class='form-control'  />
                                         </div>
                                     </div>
                                     <div class='col-md-12'>
                                         <div class='form-group'>
                                             <label>Catatan</label>
-                                            <textarea type='text' name='catatan' class='form-control' required='true'></textarea>
+                                            <textarea type='text' name='catatan' class='form-control' ></textarea>
                                         </div>
                                     </div>
 

@@ -79,7 +79,7 @@ $kelas = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM kelas WHERE id
                     <table style="text-align:left; width:100%">
                         <tr>
                             <td style="text-align:center; vertical-align:top; width:100px" rowspan="8">
-                                <?php
+                                <!-- <?php
                                 if ($siswa['foto'] <> '') {
                                     if (!file_exists("../foto/fotosiswa/$siswa[foto]")) {
                                         echo "<img src='$homeurl/dist/img/avatar_default.png' class='img'  style='max-width:60px' alt='+'>";
@@ -90,7 +90,10 @@ $kelas = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM kelas WHERE id
                                     echo "<img src='$homeurl/dist/img/foto.svg' class='img'  style='max-width:60px' alt='+'>";
                                 }
 
-                                ?>
+                                ?> -->
+                                
+                                <img src='<?php echo $homeurl; ?>/dist/img/pasfoto.png' class='img'  style='max-width:60px' alt='+'>
+                                
                             </td>
                         </tr>
                         <tr>

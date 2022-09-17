@@ -318,10 +318,10 @@ endif;
 								</ul>
 							</li>
 						<?php } ?>
-					<?php endif ?>
+					<?php endif ?> 
 					<?php if ($pengawas['level'] == 'pengawas') : ?>
 						<li class='treeview'><a href='?pg=siswa'><i class="fas side-menu-icon fa-user-friends fa-lg fa-fw"></i> <span>Peserta Ujian</span></a></li>
-						<li><a href='?pg=statussiswa'><i class="fas side-menu-icon fa-users-cog fa-fw"></i> <span>Status Peserta</span></a></li>
+						<li><a href='?pg=statusall'><i class="fas side-menu-icon fa-users-cog fa-fw"></i> <span>Status Peserta</span></a></li>
 
 
 					<?php endif ?>

@@ -78,6 +78,8 @@ if (!isset($_GET['id'])) {
 $idujian = @$_GET['id'];
 $sqlx = mysqli_query($koneksi, "SELECT * FROM berita a LEFT JOIN mapel b ON a.id_mapel=b.id_mapel LEFT JOIN mata_pelajaran c ON b.nama=c.kode_mapel WHERE a.id_berita='$idujian'");
 $ujian = mysqli_fetch_array($sqlx);
+
+$jumlahPeserta = mysqli_fetch_array(mysqli_query($koneksi, "SELECT COUNT(*) AS jumlah FROM `siswa` WHERE sesi = '{$ujian['sesi']}' AND ruang = '{$ujian['ruang']}'"));
 $kodeujian = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM jenis WHERE id_jenis='$ujian[jenis]'"));
 $hari = buat_tanggal('D', $ujian['tgl_ujian']);
 $tanggal = buat_tanggal('d', $ujian['tgl_ujian']);
@@ -156,7 +158,7 @@ if (date('m') >= 7 and date('m') <= 12) {
 		<tr height='30'>
 			<td height='30' width='10px'></td>
 			<td height='30'>Jumlah Peserta Seharusnya</td>
-			<td height='30' width='60%' style='border-bottom:thin solid #000000'><?= $ujian['ikut'] + $ujian['susulan'] ?></td>
+			<td height='30' width='60%' style='border-bottom:thin solid #000000'><?= $jumlahPeserta['jumlah']; ?></td>
 		</tr>
 		<tr height='30'>
 			<td height='30' width='5%'></td>

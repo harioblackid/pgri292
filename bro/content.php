@@ -465,12 +465,12 @@
                     <!-- /.tab-content -->
                 </div>
             </div>
-        </div>
+        </div> 
     <?php endif; ?>
 <?php elseif ($pg == 'pengaturan') : ?>
     <?php include "mod_setting/setting.php"; ?>
 <?php elseif ($pg == 'statusall') : ?>
-    <?php cek_session_admin(); ?>
+    <?php //cek_session_admin(); ?>
     <?php include "mod_status/status_peserta.php"; ?>
 
 <?php else : ?>
