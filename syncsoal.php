@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json; charset=utf-8');
 require("config/config.default.php");
 require("config/config.function.php");
 //cek_session_admin();

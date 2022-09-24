@@ -199,13 +199,43 @@ if ($koneksi) {
                     foreach ($sync['jadwal'] as $jadwal) {
                         // if ($jadwal['jenjang'] == $setting['jenjang'] or $jadwal['jenjang'] == 'semua') {
                         //    if (in_array($jadwal['id_pk'], $jurarray) or $jadwal['id_pk'] == 'semua') {
-                        $sqljadwal = mysqli_query($koneksi, "insert into ujian
-                                (id_ujian,id_pk,id_guru,id_mapel,nama,jml_soal,jml_esai,bobot_pg,bobot_esai,lama_ujian,tgl_ujian,tgl_selesai,waktu_ujian,level,acak,token,hasil,kelas,tampil_pg,tampil_esai,opsi,kode_ujian,ulang,kkm,soal_agama,kode_nama) values 			
+                        $sqljadwal = mysqli_query($koneksi, "INSERT INTO ujian
+                                (
+                                    id_ujian, 
+                                    id_pk, 
+                                    id_guru, 
+                                    id_mapel,
+                                    nama,
+                                    jml_soal,
+                                    jml_esai,
+                                    bobot_pg,
+                                    bobot_esai,
+                                    lama_ujian,
+                                    tgl_ujian,
+                                    tgl_selesai,
+                                    waktu_ujian,
+                                    level,
+                                    acak,
+                                    token,
+                                    hasil,
+                                    kelas,
+                                    tampil_pg,
+                                    tampil_esai,
+                                    opsi,
+                                    kode_ujian,
+                                    ulang,
+                                    kkm,
+                                    soal_agama,
+                                    kode_nama
+                                ) values 			
                                 ('$jadwal[id_ujian]','$jadwal[id_pk]','$jadwal[id_guru]','$jadwal[id_mapel]','$jadwal[nama]','$jadwal[jml_soal]','$jadwal[jml_esai]','$jadwal[bobot_pg]','$jadwal[bobot_esai]','$jadwal[lama_ujian]','$jadwal[tgl_ujian]','$jadwal[tgl_selesai]',
                                 '$jadwal[waktu_ujian]','$jadwal[level]','$jadwal[acak]','$jadwal[token]','$jadwal[hasil]','$jadwal[kelas]','$jadwal[tampil_pg]','$jadwal[tampil_esai]','$jadwal[opsi]','$jadwal[kode_ujian]','$jadwal[ulang]','$jadwal[kkm]','$jadwal[soal_agama]','$jadwal[kode_nama]')");
                         if (!$sqljadwal) {
+                            
                             $gagal4++;
+                            echo mysqli_error($koneksi);
                         } else {
+                            
                             $masuk4++;
                         }
                     }

@@ -168,7 +168,7 @@ $ujianx = mysqli_num_rows(mysqli_query($koneksi, "select * from ujian "));
             },
         });
 
-    });
+    }); 
     $('#formsinkron').submit(function(e) {
         e.preventDefault();
         $.ajax({
