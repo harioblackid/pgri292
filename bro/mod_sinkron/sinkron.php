@@ -197,39 +197,47 @@ if ($koneksi) {
 
                     $sql = mysqli_query($koneksi, "truncate table ujian");
                     foreach ($sync['jadwal'] as $jadwal) {
+
                         // if ($jadwal['jenjang'] == $setting['jenjang'] or $jadwal['jenjang'] == 'semua') {
                         //    if (in_array($jadwal['id_pk'], $jurarray) or $jadwal['id_pk'] == 'semua') {
                         $sqljadwal = mysqli_query($koneksi, "INSERT INTO ujian
+                                values
                                 (
-                                    id_ujian, 
-                                    id_pk, 
-                                    id_guru, 
-                                    id_mapel,
-                                    nama,
-                                    jml_soal,
-                                    jml_esai,
-                                    bobot_pg,
-                                    bobot_esai,
-                                    lama_ujian,
-                                    tgl_ujian,
-                                    tgl_selesai,
-                                    waktu_ujian,
-                                    level,
-                                    acak,
-                                    token,
-                                    hasil,
-                                    kelas,
-                                    tampil_pg,
-                                    tampil_esai,
-                                    opsi,
-                                    kode_ujian,
-                                    ulang,
-                                    kkm,
-                                    soal_agama,
-                                    kode_nama
-                                ) values 			
-                                ('$jadwal[id_ujian]','$jadwal[id_pk]','$jadwal[id_guru]','$jadwal[id_mapel]','$jadwal[nama]','$jadwal[jml_soal]','$jadwal[jml_esai]','$jadwal[bobot_pg]','$jadwal[bobot_esai]','$jadwal[lama_ujian]','$jadwal[tgl_ujian]','$jadwal[tgl_selesai]',
-                                '$jadwal[waktu_ujian]','$jadwal[level]','$jadwal[acak]','$jadwal[token]','$jadwal[hasil]','$jadwal[kelas]','$jadwal[tampil_pg]','$jadwal[tampil_esai]','$jadwal[opsi]','$jadwal[kode_ujian]','$jadwal[ulang]','$jadwal[kkm]','$jadwal[soal_agama]','$jadwal[kode_nama]')");
+                                    '$jadwal[id_ujian]',
+                                    '$jadwal[kode_nama]',
+                                    '$jadwal[id_pk]',
+                                    '$jadwal[id_guru]',
+                                    '$jadwal[id_mapel]',
+                                    '$jadwal[kode_ujian]',
+                                    '$jadwal[nama]',
+                                    '$jadwal[jml_soal]',
+                                    '$jadwal[jml_esai]',
+                                    '$jadwal[bobot_pg]',
+                                    '$jadwal[opsi]',
+                                    '$jadwal[bobot_esai]',
+                                    '$jadwal[tampil_pg]',
+                                    '$jadwal[tampil_esai]',
+                                    '$jadwal[lama_ujian]',
+                                    '$jadwal[tgl_ujian]',
+                                    '$jadwal[tgl_selesai]',
+                                    '$jadwal[waktu_ujian]',
+                                    '$jadwal[selesai_ujian]',
+                                    '$jadwal[level]',
+                                    '$jadwal[kelas]',
+                                    '$jadwal[sesi]',
+                                    '$jadwal[acak]',
+                                    '$jadwal[token]',
+                                    '$jadwal[status]',
+                                    '$jadwal[hasil]',
+                                    '$jadwal[kkm]',
+                                    '$jadwal[ulang]',
+                                    '$jadwal[soal_agama]',
+                                    '$jadwal[reset]',
+                                    '$jadwal[ulang_kkm]',
+                                    '$jadwal[btn_selesai]',
+                                    '$jadwal[pelanggaran]'
+                                ) 			
+                                ");
                         if (!$sqljadwal) {
                             
                             $gagal4++;
@@ -239,6 +247,7 @@ if ($koneksi) {
                             $masuk4++;
                         }
                     }
+
                     $exec = mysqli_query($koneksi, "update sinkron set jumlah='$masuk4', status_sinkron='1',tanggal='$datetime' where nama_data='DATA4'");
                     echo "
                                     <div class='row'>
@@ -259,10 +268,10 @@ if ($koneksi) {
                                     </div>";
                 } else {
                     echo '<div class="alert alert-danger alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <h4><i class="icon fa fa-ban"></i> Sinkron Data Soal Gagal!</h4>
-        Silahkan periksa koneksi internet dan token
-      </div>';
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4><i class="icon fa fa-ban"></i> Sinkron Data Soal Gagal!</h4>
+                            Silahkan periksa koneksi internet dan token
+                        </div>';
                 }
             }
         }
@@ -271,7 +280,7 @@ if ($koneksi) {
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
         <h4><i class="icon fa fa-ban"></i> Sinkron Gagal!</h4>
         Silahkan memilih data sinkron dan mengisi token dengan benar
-      </div>';
+        </div>';
     }
     //Tarik Data Peserta Ujian
 

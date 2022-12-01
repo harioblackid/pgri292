@@ -34,7 +34,7 @@ defined('APLIKASI') or exit('Anda tidak dizinkan mengakses langsung script ini!'
                                     <th>Password</th>
                                     <th>Server</th>
                                     <th>Agama</th>
-                                    <th>Status</th>
+                                    <th>Aksi</th>
                                     <?php if ($pengawas['level'] == 'admin') : ?>
                                         <?php if ($setting['server'] == 'pusat') : ?>
                                             <th width='70px'></th>
@@ -420,6 +420,20 @@ defined('APLIKASI') or exit('Anda tidak dizinkan mengakses langsung script ini!'
                 },
                 {
                     'data': 'status'
+                    // 'mRender': function (data) {
+                        
+                    //     if(data == 'aktif') {
+                    //         var att = "btn btn-flat btn-xs bg-maroon update_status";
+                    //         var text = "Blokir";
+                    //         var icon = "fa fa-times";
+                    //     }
+                    //     else {
+                    //         var att = "btn btn-flat btn-xs bg-green update_status";
+                    //         var text = "Aktifkan";
+                    //         var icon = "fa fa-check";
+                    //     }
+                    //     return '<a class="'+ att +'" data-id="' + data[1] + '" data-status="'+ data[0] +'" ><i class="'+ icon +'"></i> '+ text +'</a>';
+                    // }
                 },
                 <?php if ($pengawas['level'] == 'admin') { ?>
                     <?php if ($setting['server'] == 'pusat') { ?> {
@@ -534,6 +548,41 @@ defined('APLIKASI') or exit('Anda tidak dizinkan mengakses langsung script ini!'
                         setTimeout(function() {
                             window.location.reload();
                         }, 2000);
+                    }
+                });
+            }
+            return false;
+        })
+
+    });
+
+    $('#tabelsiswa').on('click', '.update_status', function() {
+        var id = $(this).data('id');
+        var status = $(this).data('status');
+        console.log(id);
+        console.log(status);
+        swal({
+            title: 'Ubah Status Siswa',
+            text: 'Anda yakin ingin mengubah status siswa?',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'iya, ubah'
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    url: 'mod_siswa/crud_siswa.php?pg=update_status&status=' + status,
+                    method: "POST",
+                    data: 'id_siswa=' + id,
+                    success: function(data) {
+                        iziToast.success({
+                            title: 'Horee!',
+                            message: 'Status berhasil diubah',
+                            position: 'topRight'
+                        });
+                        // setTimeout(function() {
+                        //     window.location.reload();
+                        // }, 2000);
                     }
                 });
             }

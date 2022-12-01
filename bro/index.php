@@ -384,16 +384,19 @@ endif;
 	<script src='<?= $homeurl ?>/plugins/chartjs/dist/Chart.js'></script>
 	<script src='<?= $homeurl ?>/plugins/sweetalert2/dist/sweetalert2.min.js'></script>
 	<script src='<?= $homeurl ?>/plugins/MathJax-2.7.3/MathJax.js?config=TeX-AMS_HTML-full'></script>
-	<?php if ($setting['db_versi'] <> VERSI_DB) { ?>
-		<script>
-			$('#modalversidb').modal('show');
-		</script>
-	<?php } ?>
+	
+
 	<script>
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+
+		const pages = urlParams.get('pg');
+
 		$('.loader').fadeOut('slow');
 		$(function() {
 			$('#textarea').wysihtml5()
 		});
+
 		// var autoRefresh = setInterval(
 		// 	function() {
 		// 		$('#waktu').load('_load.php?pg=waktu');
@@ -402,13 +405,13 @@ endif;
 		// 	}, 1000
 		// );
 
-		<?php if ($pg == 'statussiswa') { ?>
+		if(pages == "statussiswa") {
 			var autoRefresh = setInterval(
 				function() {
 					$('#divstatussiswa').load("mod_status/statussiswa.php?id=76310EEFF2B5D3C887F238976A421B638CFEB0942AB8249CD0A29B125C91B3E5");
 				}, 5000
 			);
-		<?php } ?>
+		}
 
 		$('.datepicker').datetimepicker({
 			timepicker: false,
@@ -505,8 +508,9 @@ endif;
 
 
 		});
-	</script>
-	<script>
+
+
+		// Kirim form
 		function kirim_form() {
 			var homeurl;
 			homeurl = '<?= $homeurl ?>';
@@ -520,9 +524,7 @@ endif;
 				}
 			});
 		}
-	</script>
 
-	<script type="text/javascript">
 		var url = window.location;
 		// for sidebar menu entirely but not cover treeview
 		$('ul.sidebar-menu a').filter(function() {
@@ -533,11 +535,7 @@ endif;
 		$('ul.treeview-menu a').filter(function() {
 			return this.href == url;
 		}).closest('.treeview').addClass('active');
-	</script>
 
-
-
-	<script>
 		//Hapus data jawaban
 		$(function() {
 			$("#btnhapusjawaban").click(function() {
@@ -573,6 +571,9 @@ endif;
 				return false;
 			})
 		});
+		// End Hapus Jawaban
+
+		// -- Start BUAT BERITA --
 		$(function() {
 			$("#buatberita").click(function() {
 				swal({
@@ -601,7 +602,9 @@ endif;
 				return false;
 			})
 		});
+		// -- End BUAT BERITA --
 
+		// -- Start Form Reset --
 		$(document).ready(function() {
 			var messages = $('#pesan').notify({
 				type: 'messages',
@@ -635,11 +638,9 @@ endif;
 			});
 
 		});
-	</script>
+		// -- End Form Reset --
 
-
-	<script>
-		<?php if ($pg == 'jenisujian') : ?>
+		if(pages == "jenisujian") {
 			$(document).ready(function() {
 				$('#tablejenis').Tabledit({
 					url: 'mod_master/ajax_master.php?pg=jenisujian',
@@ -653,8 +654,9 @@ endif;
 					}
 				});
 			});
-		<?php endif; ?>
-		<?php if ($pg == 'pk') : ?>
+		}
+
+		if(pages == "pk") {
 			$(document).ready(function() {
 				$('#tablejurusan').Tabledit({
 					url: 'mod_master/ajax_master.php?pg=jurusan',
@@ -667,8 +669,9 @@ endif;
 					}
 				});
 			});
-		<?php endif; ?>
-		<?php if ($pg == 'level') : ?>
+		}
+
+		if(pages == "level"){
 			$(document).ready(function() {
 				$('#tablelevel').Tabledit({
 					url: 'mod_master/ajax_master.php?pg=level',
@@ -681,8 +684,9 @@ endif;
 					}
 				});
 			});
-		<?php endif; ?>
-		<?php if ($pg == 'kelas') : ?>
+		}
+
+		if(pages == "kelas") {
 			$(document).ready(function() {
 				$('#tablekelas').Tabledit({
 					url: 'mod_master/ajax_master.php?pg=kelas',
@@ -696,8 +700,9 @@ endif;
 					}
 				});
 			});
-		<?php endif; ?>
-		<?php if ($pg == 'matapelajaran') : ?>
+		}
+
+		if(pages == "matapelajaran"){
 			$(document).ready(function() {
 				$('#tablemapel').Tabledit({
 					url: 'mod_master/ajax_master.php?pg=mapel',
@@ -710,8 +715,9 @@ endif;
 					}
 				});
 			});
-		<?php endif; ?>
-		<?php if ($pg == 'ruang') : ?>
+		}
+
+		if(pages == "ruang") {
 			$(document).ready(function() {
 				$('#tableruang').Tabledit({
 					url: 'mod_master/ajax_master.php?pg=ruang',
@@ -724,8 +730,9 @@ endif;
 					}
 				});
 			});
-		<?php endif; ?>
-		<?php if ($pg == 'sesi') : ?>
+		}
+
+		if(pages == "sesi") {
 			$(document).ready(function() {
 				$('#tablesesi').Tabledit({
 					url: 'mod_master/ajax_master.php?pg=sesi',
@@ -738,9 +745,9 @@ endif;
 					}
 				});
 			});
-		<?php endif; ?>
-	</script>
+		}
 
+	</script>
 	<!-- <script>
 		$(function() {
 			var ctx = $("#chart-sek2");

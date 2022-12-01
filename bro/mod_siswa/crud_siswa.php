@@ -116,6 +116,18 @@ if ($pg == 'ambil_siswa') {
         echo '<script>window.location="404.html"</script>';
     }
 }
+
+// Update status siswa
+
+if($pg == 'update_status') {
+    $id_siswa = $_POST['id_siswa'];
+    if($_GET['status'] == 'aktif') {
+        mysqli_query($koneksi, "UPDATE siswa SET status = 'tidak' WHERE id_siswa = {$id_siswa}");
+    } else {
+        mysqli_query($koneksi, "UPDATE siswa SET status = 'aktif' WHERE id_siswa = {$id_siswa}");
+    }
+}
+
 if ($pg == 'uploadfoto') {
     if (isset($_POST["uplod"])) {
         $output = '';

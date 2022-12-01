@@ -34,6 +34,8 @@ if ($pg == 'ubah') {
 }
 if ($pg == 'tambah') {
     $wkt = explode(" ",  $_POST['tgl_ujian']);
+    $finish = explode(" ",  $_POST['tgl_selesai']);
+    $wkt_selesai = $finish[1];
     $wkt_ujian = $wkt[1];
     $acak = (isset($_POST['acak'])) ? 1 : 0;
     $token = (isset($_POST['token'])) ? 1 : 0;
@@ -52,6 +54,7 @@ if ($pg == 'tambah') {
         'tgl_ujian'        => $_POST['tgl_ujian'],
         'tgl_selesai'        => $_POST['tgl_selesai'],
         'waktu_ujian'     => $wkt_ujian,
+        'selesai_ujian' => $wkt_selesai,
         'level'     => $bank['level'],
         'sesi'       => $_POST['sesi'],
         'acak'        => $acak,
