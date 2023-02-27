@@ -57,7 +57,7 @@ defined('APLIKASI') or exit('Anda tidak dizinkan mengakses langsung script ini!'
                                     <td>$no</td>
                                     
                                     <td>$ujian[kode_ujian]</td>
-                                    <td>$ujian[nama]</td>
+                                    <td>$ujian[kode]</td>
                                     <td>$datanilai</td>
                                     <td>$terkirim </td>
                                     <!--<td>$tempjawaban</td>-->

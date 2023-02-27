@@ -3,7 +3,7 @@
 $host = 'localhost';
 $user = 'root';
 $pass = '';
-$debe = 'cbtsimulasi';
+$debe = 'cbtsusulan';
 
 
 $koneksi = mysqli_connect($host, $user, $pass, "");

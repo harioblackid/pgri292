@@ -23,7 +23,9 @@ $sheet->setCellValue('I1', 'RUANG');
 $sheet->setCellValue('J1', 'USERNAME');
 $sheet->setCellValue('K1', 'PASSWORD');
 $sheet->setCellValue('L1', 'FOTO');
-$sheet->getStyle('A1:L1')->applyFromArray(
+$sheet->setCellValue('M1', 'SERVER');
+$sheet->setCellValue('N1', 'AGMAA');
+$sheet->getStyle('A1:N1')->applyFromArray(
     array(
         'fill' => array(
             'type' => Fill::FILL_SOLID,
@@ -50,9 +52,11 @@ while ($row = mysqli_fetch_array($query)) {
     $sheet->setCellValue('J' . $i, $row['username']);
     $sheet->setCellValue('K' . $i, $row['password']);
     $sheet->setCellValue('L' . $i, $row['foto']);
+    $sheet->setCellValue('M' . $i, $row['server']);
+    $sheet->setCellValue('N' . $i, $row['agama']);
     $i++;
 }
-foreach (range('A', 'L') as $col) {
+foreach (range('A', 'N') as $col) {
     $sheet->getColumnDimension($col)->setAutoSize(true);
 }
 $styleArray = [
@@ -64,7 +68,7 @@ $styleArray = [
     ],
 ];
 $i = $i - 1;
-$sheet->getStyle('A2:L' . $i)->applyFromArray($styleArray);
+$sheet->getStyle('A2:N' . $i)->applyFromArray($styleArray);
 
 
 $writer = new Xlsx($spreadsheet);

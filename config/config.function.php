@@ -430,7 +430,7 @@ if (!function_exists('cutText')) {
 					}
 				case 3:
 					while ($char != ' ') {
-						$char = $text[++$num_char];
+						$char = $text[++$num_char];	
 					}
 			}
 		}
