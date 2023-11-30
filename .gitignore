@@ -20,6 +20,6 @@
 
 # Backup Soal
 /bro/mod_setting/backup_soal/
-
+/bro/mod_setting/backup_soal/*.sql
 # Ignore SQL File
 *.sql

@@ -497,7 +497,7 @@ $tglsekarang = time();
                             var idm = $(this).data('id');
                             var ids = $(this).data('ids');
                             console.log(idm + '-' + ids);
-
+ 
                             $.ajax({
                                 type: 'POST',
                                 url: 'konfirmasi.php',
