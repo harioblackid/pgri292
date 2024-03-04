@@ -3,7 +3,7 @@
 require("config/config.default.php");
 require("config/config.function.php");
 require("config/functions.crud.php");
-cek_session_siswa();
+cek_session_siswa(); 
 $ac = enkripsi($_POST['idm']);
 $id_siswa = enkripsi($_POST['ids']);
 $idu = $_POST['idm'];
@@ -30,7 +30,7 @@ if ($query['token'] == 1) :
         endif;
     else :
         echo "Kode Token Salah";
-    endif;
+    endif; 
 else :
     $query = mysqli_query($koneksi, "SELECT * FROM nilai WHERE id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
     $nilaix = mysqli_fetch_array($query);
