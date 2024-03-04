@@ -16,6 +16,9 @@
 # Build data
 /build/
 
+#Config files
+/config/config.database.php
+
 # End of https://www.toptal.com/developers/gitignore/api/phpunit
 
 # Backup Soal

@@ -1,8 +1,8 @@
 <?php
 //konfigurasi server database
 $host = 'localhost';
-$user = 'root';
-$pass = '';
+$user = 'harioblackid';
+$pass = 'adminsmk99';
 $debe = 'cbtmidgenap24';
 
 
