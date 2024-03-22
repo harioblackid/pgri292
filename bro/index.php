@@ -247,7 +247,7 @@ endif;
 
 							</ul>
 						</li> -->
-
+						<?php if ($setting['server'] == 'pusat') : ?>
 						<li class='treeview'>
 							<a href='#'><i class="fas fa-envelope-open-text side-menu-icon fa-fw"></i><span> Bank Soal </span><span class='pull-right-container'> <i class='fa fa-angle-down pull-right'></i> </span></a>
 							<ul class='treeview-menu'>
@@ -256,12 +256,13 @@ endif;
 
 							</ul>
 						</li>
+						<?php endif ?>
 						<li><a href='?pg=statusall'><i class="fas fa-user-friends side-menu-icon fa-fw    "></i> <span>Status Peserta</span></a></li>
 						<!-- <li><a href='?pg=jadwal'><i class="fas fa-desktop side-menu-icon fa-fw"></i> <span> Status Ujian</span></a></li> -->
 						<li class='treeview'>
 							<a href='#'><i class="fas fa-desktop side-menu-icon fa-fw"></i><span> Menu Ujian </span><span class='pull-right-container'> <i class='fa fa-angle-down pull-right'></i> </span></a>
 							<ul class='treeview-menu'>
-								<li><a href='?pg=jadwal'><i class='fas fa-angle-double-right fa-fw'></i> <span> Jadwak Ujian</span></a></li>
+								<li><a href='?pg=jadwal'><i class='fas fa-angle-double-right fa-fw'></i> <span> Jadwal Ujian</span></a></li>
 								<li><a href='?pg=reset'><i class='fas fa-angle-double-right  fa-fw'></i> <span>Reset Ujian</span></a></li>
 
 							</ul>
